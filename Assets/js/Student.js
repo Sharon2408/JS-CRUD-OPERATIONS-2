@@ -47,7 +47,8 @@ function loadTable() {
       '<input id="ClassNo" class="swal2-input" placeholder="Class">' +
       '<input id="SchoolName" class="swal2-input" placeholder="School Name">' +
       '<input id="Average" class="swal2-input" placeholder="Average in %">' +
-      '<input id="Grade" class="swal2-input" placeholder="Grade A,B,C,D">',
+      '<input id="Grade" class="swal2-input" placeholder="Grade A,B,C,D">'+
+      '<input id="StudentPhoto" type="file" class="swal2-input" placeholder="Student Photo">',
       focusConfirm: false,
       showCancelButton: true,
       cancelButtonColor: '#d33',
@@ -104,8 +105,24 @@ function loadTable() {
     const SchoolName = document.getElementById("SchoolName").value;
     const Average = document.getElementById("Average").value;
     const Grade = document.getElementById("Grade").value;
-  
-    const xhttp = new XMLHttpRequest();
+  const StudentPhotoUser = document.getElementById("StudentPhoto").value;
+  const StudentPhoto = StudentPhotoUser.files;
+  const xhttp = new XMLHttpRequest();
+    if (StudentPhoto) {
+      const reader = new FileReader();
+      reader.onload = function () {
+          const dataUrl = reader.result;
+          xhttp.onreadystatechange = function () {
+              if (this.readyState == 4 && this.status == 200) {
+                  const objects = JSON.parse(this.responseText);
+                  Swal.fire({
+                      icon: 'success',
+                      title: 'Student Details Entered',
+                      text: objects["message"]
+                  });
+                  loadTable();
+              }
+          };
     xhttp.open("POST", "http://localhost:3000/Students/");
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhttp.send(
@@ -115,17 +132,38 @@ function loadTable() {
         SchoolName: SchoolName,
         Average: Average,
         Grade:Grade,
-        StudentPhoto: "/Assets/images/man.png",
+        StudentPhoto: dataUrl,
       })
     );
+      };
+      reader.readAsDataURL(StudentPhoto);
+    }
+    else{
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const objects = JSON.parse(this.responseText);
-        Swal.fire(objects["message"]);
+        Swal.fire({
+          icon: 'success',
+          title: 'Student Details Entered',
+          text: objects["message"]
+      }); 
         loadTable();
       }
     };
+    xhttp.open("POST", "http://localhost:3000/Students");
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(
+        JSON.stringify({
+          StudentName: StudentName,
+          ClassNo:ClassNo ,
+          SchoolName: SchoolName,
+          Average: Average,
+          Grade:Grade,
+          StudentPhoto: null,
+        })
+    );
   }
+}
 
   function showUserEditBox(id) {
     console.log(id);
@@ -213,22 +251,43 @@ function loadTable() {
     const xhttp = new XMLHttpRequest();
     xhttp.open("PUT", `http://localhost:3000/Students/${id}`);
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    if (StudentPhoto) {
+      const reader = new FileReader();
+      reader.onload = function () {
+          const dataUrl = reader.result;
+          xhttp.send(
+              JSON.stringify({
+                StudentName: StudentName,
+                ClassNo:ClassNo ,
+                SchoolName: SchoolName,
+                Average: Average,
+                Grade:Grade,
+                StudentPhoto: dataUrl,
+              })
+          );
+      };
+      reader.readAsDataURL(StudentPhoto);
+  } else{
     xhttp.send(
       JSON.stringify({
-       // id: id,
        StudentName: StudentName,
        ClassNo:ClassNo ,
        SchoolName: SchoolName,
        Average: Average,
        Grade:Grade,
-       StudentPhoto: "/Assets/images/man.png",
+       StudentPhoto: null,
       })
     );
+  }
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         const objects = JSON.parse(this.responseText);
-        Swal.fire(objects["message"]);
         loadTable();
+            Swal.fire({
+                title: 'Your Change Was Saved',
+                text: objects["message"],
+                icon: 'success'
+            });
       }
     };
   }

@@ -134,6 +134,15 @@
       "Grade": "A",
       "StudentPhoto": "/Assets/images/man.png",
       "id": 15
+    },
+    {
+      "StudentName": "Sharon",
+      "ClassNo": "8",
+      "SchoolName": "SHARON",
+      "Average": "58",
+      "Grade": "A",
+      "StudentPhoto": null,
+      "id": 16
     }
   ]
 }
