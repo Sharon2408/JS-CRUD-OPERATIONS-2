@@ -1,0 +1,139 @@
+{
+  "Students": [
+    {
+      "StudentName": "Sharon",
+      "ClassNo": "11",
+      "SchoolName": "Nirmala Matha",
+      "Average": "95",
+      "Grade": "A",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 1
+    },
+    {
+      "StudentName": "David",
+      "ClassNo": "12",
+      "SchoolName": "Nirmala Matha",
+      "Average": "85",
+      "Grade": "A",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 2
+    },
+    {
+      "StudentName": "Antony",
+      "ClassNo": "6",
+      "SchoolName": "Liseux",
+      "Average": "65",
+      "Grade": "C",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 3
+    },
+    {
+      "StudentName": "Mark",
+      "ClassNo": "10",
+      "SchoolName": "Amrita",
+      "Average": "91",
+      "Grade": "A",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 4
+    },
+    {
+      "StudentName": "James",
+      "ClassNo": "10",
+      "SchoolName": "Amrita",
+      "Average": "98",
+      "Grade": "A",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 5
+    },
+    {
+      "StudentName": "Ram",
+      "ClassNo": "5",
+      "SchoolName": "Kikani",
+      "Average": "75",
+      "Grade": "B",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 6
+    },
+    {
+      "StudentName": "Mathew",
+      "ClassNo": "7",
+      "SchoolName": "PRV",
+      "Average": "50",
+      "Grade": "C",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 7
+    },
+    {
+      "StudentName": "Sharon",
+      "ClassNo": "7",
+      "SchoolName": "Stanes",
+      "Average": "90",
+      "Grade": "A",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 8
+    },
+    {
+      "StudentName": "Janet",
+      "ClassNo": "8",
+      "SchoolName": "VidyaVikas",
+      "Average": "58",
+      "Grade": "D",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 9
+    },
+    {
+      "StudentName": "Dany",
+      "ClassNo": "9",
+      "SchoolName": "Nehru",
+      "Average": "87",
+      "Grade": "B",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 10
+    },
+    {
+      "StudentName": "Amit",
+      "ClassNo": "11",
+      "SchoolName": "Premier",
+      "Average": "65",
+      "Grade": "C",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 11
+    },
+    {
+      "StudentName": "Andria",
+      "ClassNo": "6",
+      "SchoolName": "Stanes",
+      "Average": "78",
+      "Grade": "B",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 12
+    },
+    {
+      "StudentName": "Gowtham",
+      "ClassNo": "9",
+      "SchoolName": "GeeDee",
+      "Average": "87",
+      "Grade": "B",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 13
+    },
+    {
+      "StudentName": "Ron Weasley",
+      "ClassNo": "12",
+      "SchoolName": "Hogwarts",
+      "Average": "76",
+      "Grade": "B",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 14
+    },
+    {
+      "StudentName": "Hermoine Granger",
+      "ClassNo": "12",
+      "SchoolName": "Hogwards",
+      "Average": "98",
+      "Grade": "A",
+      "StudentPhoto": "/Assets/images/man.png",
+      "id": 15
+    }
+  ]
+}
