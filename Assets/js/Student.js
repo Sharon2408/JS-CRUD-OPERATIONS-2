@@ -1,3 +1,4 @@
+// To load the table display the details from db.json
 function loadTable() {
     const xhttp = new XMLHttpRequest();
     xhttp.open("GET", "http://localhost:3000/Students");
@@ -20,7 +21,7 @@ function loadTable() {
             '<td><img width="50px" src="' +
             object["StudentPhoto"] +
             '" class="avatar"></td>';
-        
+        // EDIT and DELETE Button
           trHTML +=
             '<td><button type="button" class="btn btn-outline-success" onclick="showUserEditBox(' +
             object["id"] +
@@ -37,7 +38,7 @@ function loadTable() {
   }
   
   loadTable();
-
+// To show the dialog box When the ENTER DETAILS button is clicked using sweet Alert
   function showUserCreateBox() {
     Swal.fire({
       title: "Create user",
@@ -52,6 +53,7 @@ function loadTable() {
       focusConfirm: false,
       showCancelButton: true,
       cancelButtonColor: '#d33',
+      // To Validate the details entered by the user before creating
       preConfirm: () => {
         const StudentName = document.getElementById("StudentName").value;
         const studentNameRegex = /^[a-zA-Z\- ]{3,50}$/;
@@ -99,6 +101,7 @@ function loadTable() {
     });
   }
   
+  // This Function is used to post the details to the table after validation
   function userCreate() {
     const StudentName = document.getElementById("StudentName").value;
     const ClassNo = document.getElementById("ClassNo").value;
@@ -164,6 +167,8 @@ function loadTable() {
     );
   }
 }
+
+// This function is to show the user edit box When the EDIT button is clicked
 
   function showUserEditBox(id) {
     console.log(id);
@@ -239,6 +244,7 @@ function loadTable() {
     };
   }
   
+  // This function is to post the user edited details to the table
   function userEdit(id) {
     //const id = document.getElementById("id").value;
     const StudentName = document.getElementById("StudentName").value;
@@ -292,7 +298,7 @@ function loadTable() {
     };
   }
 
-
+// This function is to DELETE the user records when the DELETE button is clicked
   function userDelete(id) {
     console.log(id);
     Swal.fire({
