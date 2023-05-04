@@ -1,7 +1,7 @@
 // To load the table display the details from db.json
-function loadTable() {
+function loadTable(StudentName='') {
     const xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "http://localhost:3000/Students");
+    xhttp.open("GET", `http://localhost:3000/Students?StudentName_like=${StudentName}`);
     xhttp.send();
    
     xhttp.onreadystatechange = function () {
@@ -38,6 +38,12 @@ function loadTable() {
   }
   
   loadTable();
+  // Search 
+function search() {
+  const StudentName = document.getElementById("searchvalue").value;
+  loadTable(StudentName);
+}
+
 // To show the dialog box When the ENTER DETAILS button is clicked using sweet Alert
   function showUserCreateBox() {
     Swal.fire({

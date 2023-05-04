@@ -1,66 +1,71 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- External JavaScript File -->
-    <script src="/Assets/js/Student.js"></script>
-    
-    <!-- JavaScript SweetAlert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
-    
-    <!-- Bootstrap CSS -->
-<script src="/Assets/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="/Assets/css/bootstrap.min.css">
 
-<!-- Fav Icon and Title -->
-<link rel="shortcut icon" href="/Assets/images/man.png" type="image/x-icon">
-<title>JS CRUD OPERATIONS</title>
-  </head>
-  
-  <body>
-   <!-- Nav Bar Start -->
-        
-        <nav class="navbar sticky-top navbar-dark bg-success">
-          <div class="container-fluid">
-            <!-- Nav Bar Heading -->
-            <a class="navbar-brand" href="#">Student Details</a>
-            <!-- Nav Bar Enter Details  Button -->
-            <button
-              type="button"
-              class="btn btn-outline-warning justify-content-end"
-              onclick="showUserCreateBox()"
-            >
-              ENTER DETAILS
-            </button>
-          </div>
-        </nav>
-    <!-- Nav Bar End -->
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- External JavaScript File -->
+  <script src="/Assets/js/Student.js"></script>
 
-<!-- Student Details Table Start -->
-<div class="container">
-      <div class="table-responsive">
-        <table class="table  table-warning table-hover">
-          <thead>
-            <tr>
-              <th scope="col">Student ID</th>
-              <th scope="col">Student Name</th>
-              <th scope="col">Class</th>
-              <th scope="col">School Name</th>
-              <th scope="col">Average</th>
-              <th scope="col">Grade</th>
-              <th scope="col">Photo</th>
-              <th scope="col">Changes</th>
-            </tr>
-          </thead>
-          <tbody id="mytable">
-            <tr>
-              <th scope="row" colspan="8">Loading...</th>
-            </tr>
-          </tbody>
-        </table>
+  <!-- JavaScript SweetAlert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <script src="/Assets/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="/Assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Fav Icon and Title -->
+  <link rel="shortcut icon" href="/Assets/images/man.png" type="image/x-icon">
+  <title>JS CRUD OPERATIONS</title>
+</head>
+
+<body>
+  <!-- Nav Bar Start -->
+
+  <nav class="navbar sticky-top navbar-dark bg-success">
+    <div class="container-fluid">
+      <!-- Nav Bar Heading -->
+      <a class="navbar-brand" href="#">Student Details</a>
+      <!-- Nav Bar Enter Details  Button -->
+      <button type="button" class="btn btn-outline-warning me-auto " onclick="showUserCreateBox()">
+        ENTER STUDENT DETAILS
+      </button>
+      <div class="">
+        <input id="searchvalue" onkeyup="search()" type="search" class="form-control rounded me-5" placeholder="Search"
+          aria-label="Search" aria-describedby="search-addon" />
       </div>
+      
+     
     </div>
-  </body>
+  </nav>
+
+  <!-- Nav Bar End -->
+
+  <!-- Student Details Table Start -->
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table  table-warning table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Student ID</th>
+            <th scope="col">Student Name</th>
+            <th scope="col">Class</th>
+            <th scope="col">School Name</th>
+            <th scope="col">Average</th>
+            <th scope="col">Grade</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Changes</th>
+          </tr>
+        </thead>
+        <tbody id="mytable">
+          <tr>
+            <th scope="row" colspan="8">Loading...</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
 </html>
