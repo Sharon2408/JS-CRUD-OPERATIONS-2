@@ -7,14 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- External JavaScript File -->
   <script src="/Assets/js/Student.js"></script>
-
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/ec8917219d.js" crossorigin="anonymous"></script>
   <!-- JavaScript SweetAlert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
 
   <!-- Bootstrap CSS -->
   <script src="/Assets/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="/Assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/Assets/css/style.css">
   <!-- Fav Icon and Title -->
   <link rel="shortcut icon" href="/Assets/images/man.png" type="image/x-icon">
   <title>JS CRUD OPERATIONS</title>
@@ -25,20 +26,20 @@
 
   <nav class="navbar sticky-top navbar-dark bg-success">
     <div class="container-fluid">
-      <!-- Nav Bar Heading -->
-      <a class="navbar-brand" href="#">Student Details</a>
-      <!-- Nav Bar Enter Details  Button -->
-      <button type="button" class="btn btn-outline-warning me-auto " onclick="showUserCreateBox()">
-        ENTER STUDENT DETAILS
-      </button>
-      <div class="">
-        <input id="searchvalue" onkeyup="search()" type="search" class="form-control rounded me-5" placeholder="Search"
-          aria-label="Search" aria-describedby="search-addon" />
+      <div id="search">
+        <input id="searchvalue" onkeyup="search()" type="search" class="form-control fixed rounded me-5" placeholder="   Search by Student Name"
+          aria-label="Search" aria-describedby="search-addon"><i id="searchicon" class="fa-solid fa-magnifying-glass fa-fade fa-xl"></i>
       </div>
-      
-     
-    </div>
+      <!-- Nav Bar Heading -->
+      <a class="navbar-brand  ms-auto" href="#">Student Details</a>
+      <!-- Nav Bar Enter Details  Button -->
+      <button type="button" class="btn btn-outline-warning ms-auto " onclick="showUserCreateBox()">
+        <i class="fa-solid fa-user-plus fa-shake fa-xl"></i> ENTER STUDENT DETAILS 
+      </button>
+     </div>
   </nav>
+
+  
 
   <!-- Nav Bar End -->
 

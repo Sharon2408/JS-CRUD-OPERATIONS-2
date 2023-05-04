@@ -50,61 +50,54 @@ function search() {
       title: "Create user",
       html:
       '<input id="StudentID" type="hidden">' +
-      '<input id="StudentName" class="swal2-input" placeholder="Student Name">' +
-      '<input id="ClassNo" class="swal2-input" placeholder="Class">' +
-      '<input id="SchoolName" class="swal2-input" placeholder="School Name">' +
-      '<input id="Average" class="swal2-input" placeholder="Average in %">' +
-      '<input id="Grade" class="swal2-input" placeholder="Grade A,B,C,D">'+
+      '<i class="fa-solid fa-user fa-bounce fa-xl"></i><input id="StudentName" class="swal2-input" placeholder="Student Name"> <br>' +
+      '<i class="fa-regular fa-user fa-bounce fa-xl"></i><input id="ClassNo" class="swal2-input" placeholder="Class">' +'<br>'+
+      '<i class="fa-regular fa-user fa-bounce fa-xl"></i><input id="SchoolName" class="swal2-input" placeholder="School Name">' +'<br>' +
+      '<i class="fa-regular fa-user fa-bounce fa-xl"></i><input id="Average" class="swal2-input" placeholder="Average in %">' +'<br>' +
+      '<i class="fa-regular fa-user fa-bounce fa-xl"></i><input id="Grade" class="swal2-input" placeholder="Grade A,B,C,D">' +'<br>'+
       '<input id="StudentPhoto" type="file" class="swal2-input" placeholder="Student Photo">',
+      showCloseButton: true,
       focusConfirm: false,
       showCancelButton: true,
       cancelButtonColor: '#d33',
       // To Validate the details entered by the user before creating
       preConfirm: () => {
-        const StudentName = document.getElementById("StudentName").value;
-        const studentNameRegex = /^[a-zA-Z\- ]{3,50}$/;
-        if(!StudentName){
+const StudentName = document.getElementById("StudentName").value;
+const ClassNo = document.getElementById("ClassNo").value;
+const SchoolName = document.getElementById("SchoolName").value;
+const Average = document.getElementById("Average").value;
+const Grade = document.getElementById("Grade").value;
+const studentNameRegex = /^[a-zA-Z\- ]{3,50}$/;
+const classRegex = /^[0-9]{1,2}$/;
+const schoolNameRegex = /^[a-zA-Z0-9\- ,]{5,100}$/;
+const averageRegex = /^(100(\.0{1,2})?|\d{1,2}(\.\d{1,2})?)$/;
+const gradeRegex = /^[A-Z]{1}$/;
+        if(!StudentName|| !ClassNo||!SchoolName||!Average||!Grade){
           Swal.showValidationMessage("These Fields Cannot be Empty");
         }
         else if(!studentNameRegex.test(StudentName)){
           Swal.showValidationMessage("Name Shoud atleast be 3 charachters in length ");
         }
-        const ClassNo = document.getElementById("ClassNo").value;
-         const classRegex = /^[0-9]{1,2}$/;
-         if(!ClassNo){
-          Swal.showValidationMessage("These Fields Cannot be Empty");
-        }
-          else if(!classRegex.test(ClassNo)){
-           Swal.showValidationMessage("Please enter only Numbers For Class 1-12");
-         }
-         const SchoolName = document.getElementById("SchoolName").value;
-        const schoolNameRegex = /^[a-zA-Z0-9\- ,]{5,100}$/;
-        if(!SchoolName){
-          Swal.showValidationMessage("These Fields Cannot be Empty");
-        }
-        else if(!schoolNameRegex.test(SchoolName)){
-          Swal.showValidationMessage("Please enter atleast 5 charachters for School Name");
-        }
-        const Average = document.getElementById("Average").value;
-        const averageRegex = /^(100(\.0{1,2})?|\d{1,2}(\.\d{1,2})?)$/;
-        if(!Average){
-          Swal.showValidationMessage("These Fields Cannot be Empty");
-        }
-        else if(!averageRegex.test(Average)){
-          Swal.showValidationMessage("Enter number between 0-100");
-        }
-        //  const Grade = document.getElementById("Grade").value;
-        // const gradeRegex = /^[A-Z]{1}$/;
-        //  if(!Grade){
-        //    Swal.showValidationMessage("These Fields Cannot be Empty");
-        //  }
-        //  else if(!Grade.test(gradeRegex)){
-        //    Swal.showValidationMessage("Please Enter any 1 letter A,B,C,D");
-        //  }
-        else{
-      userCreate();}
+        else if(!classRegex.test(ClassNo)){
+            Swal.showValidationMessage("Please enter only Numbers For Class 1-12");
+          }
+          else if(!schoolNameRegex.test(SchoolName)){
+            Swal.showValidationMessage("Please enter atleast 5 charachters for School Name");
+          }
+          else if(!gradeRegex.test(Grade)) {
+            Swal.showValidationMessage("Please Enter any 1 letter A,B,C,D");
+          }
+          else if(!averageRegex.test(Average)){
+            Swal.showValidationMessage("Enter number between 0-100");
+          }
+        else {
+        userCreate();
+      }
+      
       },
+   
     });
+    
   }
   
   // This Function is used to post the details to the table after validation
@@ -205,45 +198,45 @@ function search() {
             '">' +
             '<input id="Grade" class="swal2-input" placeholder="Grade" value="' +
             objects["Grade"] +
-            '">',
+            '">'+
+            '<input id="StudentPhoto" type="file" class="swal2-input"  value="' +
+            objects["StudentPhoto"] + '">',
+            showCloseButton: true,
         focusConfirm: false,
         showCancelButton: true,
         cancelButtonColor: '#d33',
           preConfirm: () => {
-            const StudentName = document.getElementById("StudentName").value;
-            const studentNameRegex = /^[a-zA-Z\- ]{3,50}$/;
-            if(!StudentName){
-              Swal.showValidationMessage("These Fields Cannot be Empty");
-            }
-            else if(!studentNameRegex.test(StudentName)){
-              Swal.showValidationMessage("Name Shoud atleast be 3 charachters in length ");
-            }
-            const ClassNo = document.getElementById("ClassNo").value;
-             const classRegex = /^[0-9]{1,2}$/;
-             if(!ClassNo){
-              Swal.showValidationMessage("These Fields Cannot be Empty");
-            }
-              else if(!classRegex.test(ClassNo)){
-               Swal.showValidationMessage("Please enter only Numbers For Class 1-12");
-             }
-             const SchoolName = document.getElementById("SchoolName").value;
-            const schoolNameRegex = /^[a-zA-Z0-9\- ,]{5,100}$/;
-            if(!SchoolName){
-              Swal.showValidationMessage("These Fields Cannot be Empty");
-            }
-            else if(!schoolNameRegex.test(SchoolName)){
-              Swal.showValidationMessage("Please enter atleast 5 charachters for School Name");
-            }
-            const Average = document.getElementById("Average").value;
-            const averageRegex = /^(100(\.0{1,2})?|\d{1,2}(\.\d{1,2})?)$/;
-            if(!Average){
-              Swal.showValidationMessage("These Fields Cannot be Empty");
-            }
-            else if(!averageRegex.test(Average)){
-              Swal.showValidationMessage("Enter number between 0-100");
-            }
-            else{
-            userEdit(id);}
+const StudentName = document.getElementById("StudentName").value;
+const ClassNo = document.getElementById("ClassNo").value;
+const SchoolName = document.getElementById("SchoolName").value;
+const Average = document.getElementById("Average").value;
+const Grade = document.getElementById("Grade").value;
+const studentNameRegex = /^[a-zA-Z\- ]{3,50}$/;
+const classRegex = /^[0-9]{1,2}$/;
+const schoolNameRegex = /^[a-zA-Z0-9\- ,]{5,100}$/;
+const averageRegex = /^(100(\.0{1,2})?|\d{1,2}(\.\d{1,2})?)$/;
+const gradeRegex = /^[A-Z]{1}$/;
+        if(!StudentName|| !ClassNo||!SchoolName||!Average||!Grade){
+          Swal.showValidationMessage("These Fields Cannot be Empty");
+        }
+        else if(!studentNameRegex.test(StudentName)){
+          Swal.showValidationMessage("Name Shoud atleast be 3 charachters in length ");
+        }
+        else if(!classRegex.test(ClassNo)){
+            Swal.showValidationMessage("Please enter only Numbers For Class 1-12");
+          }
+          else if(!schoolNameRegex.test(SchoolName)){
+            Swal.showValidationMessage("Please enter atleast 5 charachters for School Name");
+          }
+          else if(!gradeRegex.test(Grade)) {
+            Swal.showValidationMessage("Please Enter any 1 letter A,B,C,D");
+          }
+          else if(!averageRegex.test(Average)){
+            Swal.showValidationMessage("Enter number between 0-100");
+          }
+        else {
+        userEdit(id);
+      }
           },
         });
       }
@@ -258,6 +251,8 @@ function search() {
     const SchoolName = document.getElementById("SchoolName").value;
     const Average = document.getElementById("Average").value;
     const Grade = document.getElementById("Grade").value;
+    const StudentPhotoInput = document.getElementById("StudentPhoto");
+    const StudentPhoto = StudentPhotoInput.files[0];
     console.log(id);
     console.log(StudentName);
     const xhttp = new XMLHttpRequest();
@@ -300,6 +295,7 @@ function search() {
                 text: objects["message"],
                 icon: 'success'
             });
+           
       }
     };
   }

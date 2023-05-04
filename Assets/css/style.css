@@ -1,3 +1,11 @@
 #searchvalue{
-    borderd
+    width: 300px; 
+    background-color: rgb(241, 236, 166);
+}
+body{
+    background-color: 	#f4f4aa;
+}
+#searchicon{
+    position: absolute;
+    bottom: 25px;
 }
